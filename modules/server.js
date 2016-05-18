@@ -49,7 +49,7 @@ exports.start=function(port) {
     
     server.listen(port);
     
-	console.log("Server has started at host:"+port);
+	console.log(`Server has started at host:${port}`);
 }
 
 function readconfig(fpath, bzcfg) {
@@ -105,7 +105,7 @@ function readconfig(fpath, bzcfg) {
                 }else{
                     console.log('readconfig dbg no cache',bzcfg[dk]);
                 }
-            }
+            };
         }
         l=keys.length;
         

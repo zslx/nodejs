@@ -1,31 +1,64 @@
 'use strict';
 console.log('模块加载时只执行一次？web');
-// 主站 Controller
-var querystring = require('querystring'),
-    ejsq = require('../modules/ejsq');
+// web Controller
+const querystring = require('querystring'),
+      vxapi = require('../modules/vxapi'),
+      wx = require('./wx'),
+      ejsq = require('../modules/ejsq');
 
+// test case
+// 1 utf8: response.writeHead, res.write, res.end
+// 2 index signature, normal
+// 3 phome signature, normal
 
-exports.index=index;            // page index action
-exports.phome=post_index;       // for post
-
-function index(req, res, uri) { // get root
+exports.phome=post_index;
+exports.index = (req, res, uri)=> { // get root, index action
+    let q = uri.query, ;
+	if(q.signature!==undefined && q.timestamp!==undefined && q.nonce!==undefined) {
+        console.log('get wx signature'); // 配置公众号时调用
+     	res.writeHead(200, {'Content-Type': 'text/plain'});
+		if(vxapi.checkSignature(q.signature, q.timestamp, q.nonce)) { // 验证签名
+	        res.end(q.echostr);
+        }else{
+	        res.end('checkSignature failed.签名验证错误。','utf8');
+        }
+        return;
+    }
     let tpl='welcome.html',
         data={};
     ejsq.render(tpl, data, req, res);
-}
+};
 
 function post_index(req, res, uri) { // post root
+    let q = uri.query, ;
+	if(q.signature!==undefined && q.timestamp!==undefined && q.nonce!==undefined) {
+        // 微信服务器推送的数据
+		if(vxapi.checkSignature(q.signature, q.timestamp, q.nonce)) { // 验证签名
+            wx.postHandle(req, res);
+        }else{
+     		res.writeHead(200, {'Content-Type': 'text/plain;charset=utf-8'});
+			console.error('非法的微信数据');
+			res.end('非法的微信数据');
+        }
+        return;
+    }
+    
     var bufs = [], size=0;
 	req.on('data',function(chunk){
 	    bufs.push(chunk);
         size += chunk.length;
 	}).on('end', function() {
-        let buf = Buffer.concat(bufs, size),
-            postData = buf.toString('utf-8');
+        let buf = Buffer.concat(bufs, size);
+        
+        // let postData = buf.toString('utf8');
 		// var fields = querystring.parse(postData);
-        console.log('web post_index', postData);
-		res.writeHead(200, {'Content-Type': 'text/html'});
+        
+        console.log('web.phome:', bufs.length, size);
+        
+     	res.writeHead(200, {'Content-Type': 'text/html'});
 		// res.end(decodeURIComponent(postData));
-		res.end('');
+        
+        res.write(buf, 'utf8');
+		res.end();
 	});
 }

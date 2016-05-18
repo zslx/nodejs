@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>欢迎来到V积分</title>
+	<style>
+      #list,#qrdiv{float:left}
+      #list{width:200px}
+    </style>
+  </head>
+  <body>	
+	<div id="wrapper">
+	  <div id="info"></div>
+      <div>
+	    输入二维码ID：<input id="sceneid" type="text">
+        <button id="showqr" disabled>生成二维码</button>
+      </div>
+	  <div id="qrdiv" style=""><img id="qrimg" src='/static/img/smile.png'></div>
+	</div>
+    <script src="/static/js/vve/10core.js?v=18"></script>
+    <script src="/static/js/vve/20ajx.js?v=18"></script>
+	<script src="qrbat.js?v=7"></script>
+  </body>
+</html>

@@ -1,8 +1,11 @@
 * env: git, sae, nodejs, mysql, redis
-  gae 已经支持 nodejs ipv6+加密传输
+  gae 已经支持 nodejs
+  ipv6+加密传输
 * nodejs on sae
+http://www.sinacloud.com/index/price.html
 ** 需求、产品：第一印象！米饭、馒头，空气、水，持久使用
    兼顾移动设备和台式PC。
+   支持微信公众平台。原创文字，发布在微信平台
 ** 设计：形式和内容？首页、反馈；note 笔记、便条；blog,forum,微信
    贴吧/forum：发、看、回；个人home; chatroom;
    home: show, profiles and private
@@ -24,11 +27,13 @@
    分享，快乐，成长。
    论坛不是即时通讯的聊天工具，是有沉淀，有深度的，有家的感觉。
 
+* 2016-05-18 11:21:25 添加微信公众平台支持并部署到服务器
+  gh:feel8now
+  server:sae.node
 * 2016-05-16 15:50:12 just do it. 开工
 ** git & github ok
 ** public and private 公开部分和私密部分
    login page is hidden.
-
 * 2016-05-11 10:56:39 备份和迁移
 kvdb, mysql
 <img src="showImg.php?k=thumb.1.1366353658115.jpg" width="600">

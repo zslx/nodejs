@@ -3,14 +3,14 @@ global.bzcfg = {};
 global.fsroot = __dirname;
 // console.log('__dirname,__filename', __dirname,__filename);
 
-var server=require('./modules/server');
+const server=require('./modules/server');
 // 初始化
 var businesscfg = global.fsroot + '/biz.cfg';
 server.readcfg(businesscfg, global.bzcfg);
 
-var fs = require('fs'),
-    router=require('./modules/router'),
-    ejsq = require('./modules/ejsq');
+const fs = require('fs'),
+      router=require('./modules/router'),
+      ejsq = require('./modules/ejsq');
 
 router.setpath(__dirname);
 ejsq.setViewPath( __dirname+'/v/');

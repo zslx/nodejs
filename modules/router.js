@@ -1,3 +1,4 @@
+'use strict';
 // 根据 path 解析 controller + action + args
 // controller + action === page
 // protocl://host:port/c/p/arg1/arg2?param1=x&param2=y 两种传递参数方式
@@ -9,7 +10,7 @@
 console.log('require load. module.id', module.id);
 
 var ejsq = require('./ejsq'),
-    routes={get:{},post:{},head:{},put:{},delete:{},},
+    routes={get:{},post:{},head:{},put:{},delete:{}},
     root='';
 
 exports.setpath = function(path){
@@ -42,12 +43,13 @@ function map(dict) {
 }
 
 function route(request,response,uri) {
+	var ret='none';
     if(uri.path.substr(0,6)==='/clog?') { // 客户端日志
         // 用 websocket UDP 对比用http实现？ 同时在线的链接数限制
 	    console.log('route-clog:',new Date().toLocaleString(),uri.query);
         response.writeHead(200, {'Content-Type': 'text/plain'});
         response.end();
-        return;
+        return ret;
     }
     
 	var method=request.method.toLowerCase(),
@@ -71,10 +73,9 @@ function route(request,response,uri) {
             'location':'http://m.vjifen.com/vjf/download?getopenid=1' 
         });
         response.end();
-        return;
+        return ret;
     }
 
-	var ret='none';
 	if(routes[method] && routes[method][pathname])
 	{
         try{
@@ -96,20 +97,20 @@ function route(request,response,uri) {
 function autoRoute(request,response,uri) {
     // '/c/p/a/b'
 	var s = uri.pathname.substr(1); // 去掉第一个 /
-	var ret='none';
+	var ret='none', controller, action;
     if(s.length > 0) {
         var parr = s.split('/');
         // console.log('autoRoute', parr);
         try{
 	        if(parr.length>1) {
-		        var controller=require(root+'/c/'+parr[0]),
-                    action = controller[parr[1]];
+		        controller=require(root+'/c/'+parr[0]),
+                action = controller[parr[1]];
 	        }else if(parr.length===1){
-		        var controller=require(root+'/c/'+parr[0]),
-		            action = controller.index; // default action
+		        controller=require(root+'/c/'+parr[0]),
+		        action = controller.index; // default action
             }else{
-		        var controller=require(root+'/c/web'), // default controller:web
-		            action = controller.index; // default action
+		        controller=require(root+'/c/web'), // default controller:web
+		        action = controller.index; // default action
             }
         }catch(e){
             console.log('autoRoute err:',e);

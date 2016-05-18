@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<title>探索•发现</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/common.css?v">
+	<style>
+      #wrapper {margin:2%;border:1%;padding:2%;width:90%;height:90%}
+      #qrstr {width:100%; height:60px}
+    </style>
+  </head>
+  <body>	
+	<div id="wrapper">
+	  <input id="qrstr" type="input" value="输入二维码内容"><br>
+	  <form id="radiof">
+		<input name="qrlevel" type="radio" value="H" checked> 高品质
+		<input name="qrlevel" type="radio" value="Q" > 中品质
+		<input name="qrlevel" type="radio" value="M" > 普品质
+		<input name="qrlevel" type="radio" value="L" > 低品质
+	  </form>
+	  尺寸 <input id="qrsize" type="input" value="256"> <br>
+	  <input id="qrbtn" type="button" value="生成二维码">
+	  <div id="qrcode"></div>
+	</div>
+  </body>
+  <script src="/static/js/jquery.js"></script>
+  <script src="/static/js/qrcode.js"></script>
+  <script src="/v/qr/mkqr.js?v"></script>
+</html>
