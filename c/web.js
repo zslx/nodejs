@@ -13,14 +13,14 @@ const querystring = require('querystring'),
 
 exports.phome=post_index;
 exports.index = (req, res, uri)=> { // get root, index action
-    let q = uri.query, ;
+    let q = uri.query;
 	if(q.signature!==undefined && q.timestamp!==undefined && q.nonce!==undefined) {
         console.log('get wx signature'); // 配置公众号时调用
-     	res.writeHead(200, {'Content-Type': 'text/plain'});
+     	res.writeHead(200, {'Content-Type': 'text/plain;charset=utf-8'});
 		if(vxapi.checkSignature(q.signature, q.timestamp, q.nonce)) { // 验证签名
 	        res.end(q.echostr);
         }else{
-	        res.end('checkSignature failed.签名验证错误。','utf8');
+	        res.end('checkSignature failed.签名验证错误。');
         }
         return;
     }
@@ -30,7 +30,7 @@ exports.index = (req, res, uri)=> { // get root, index action
 };
 
 function post_index(req, res, uri) { // post root
-    let q = uri.query, ;
+    let q = uri.query;
 	if(q.signature!==undefined && q.timestamp!==undefined && q.nonce!==undefined) {
         // 微信服务器推送的数据
 		if(vxapi.checkSignature(q.signature, q.timestamp, q.nonce)) { // 验证签名
