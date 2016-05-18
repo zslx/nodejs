@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+	<title>微信开发</title>
+	<script src="/static/js/jquery.js"></script>
+	<script>
+	</script>
+  </head>
+  <body>
+	
+	<input name="image" type="file">
+	<video id="video" autoplay=""></video>
+	
+	<h3>图片上传预览 A </h3>
+	<input type="file" id="fileElem" multiple="true" accept="image/*"  onchange="handleFiles(this)">
+	<div id="fileList" style="width:200px;height:200px;"></div>
+	
+	<h3>图片上传预览 B </h3>
+	<form id="uploadForm" action="upload.php" method="post" enctype="multipart/form-data">
+	  <div class="upload_box">
+		<div class="upload_main">
+		  <div class="upload_choose">
+			<input id="fileImage" type="file" size="30" name="fileselect[]" multiple="">
+		  </div>
+		  <div id="preview" class="upload_preview"></div>
+		</div>
+		<div class="upload_submit">
+		  <button type="button" id="fileSubmit" class="upload_submit_btn" style="display: none;">确认上传图片</button>
+		</div>
+		<div id="uploadInf" class="upload_inf"></div>
+	  </div>
+	</form>
+
+	<h3> Testing 3</h3>
+	<input type="file" id="testfiles" name="files[]" onchange="loadimg(this);" />
+	<div id="divimg"></div>
+
+	<h3>常规实现方法,iframe</h3>
+	<p id="uploading" style="display:none;">Uploading...<img src="/static/img/v.gif"/>
+	  <form action="upload.php" method="post" enctype="multipart/form-data" target="upload_target" onsubmit="startUpload();" >
+		File: <input name="myfile" type="file" />
+        <input type="submit" name="submitBtn" value="Upload" />
+	  </form>
+	  <iframe id="upload_target" name="upload_target" src="#" style=";height:0;border:0px solid #fff;"></iframe>
+
+	
+	<img src="/static/img/receipt.jpg">
+	<pre>
+	  弟子规　圣人训　首孝弟　次谨信 泛爱众　而亲仁　有余力　则学文
+	</pre>	
+	<footer>
+	</footer>
+	<script src="/static/js/h5file.js"></script>
+	<script src="/static/js/zxxFile.js"></script>
+	<script src="/v/web/js/eg.js"></script>
+  </body>
+</html>

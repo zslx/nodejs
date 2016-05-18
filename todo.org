@@ -1,0 +1,36 @@
+* env: git, sae, nodejs, mysql, redis
+  gae 已经支持 nodejs ipv6+加密传输
+* nodejs on sae
+** 需求、产品：第一印象！米饭、馒头，空气、水，持久使用
+   兼顾移动设备和台式PC。
+** 设计：形式和内容？首页、反馈；note 笔记、便条；blog,forum,微信
+   贴吧/forum：发、看、回；个人home; chatroom;
+   home: show, profiles and private
+   chat: online
+   开发：工具、语言、思想、方法、案例；
+   健身(yoga)：循序渐进、因人而异，六艺十式；
+   修行(yoga)：如同健身，坚定而精勤；
+   收入：会员、捐献、施舍、打赏、广告
+   爱好：robot， 解答开发问题，其他困惑，陪聊:)
+** 实现 nodejs, mui？
+   pages:
+   p1 login + welcome
+   p2 home
+   p3 tieba
+   p4 chat
+** 改进用户体验: 每天使用，无需思考就知道做什么。
+** 价值观
+   诚信是最有价值的品质。
+   分享，快乐，成长。
+   论坛不是即时通讯的聊天工具，是有沉淀，有深度的，有家的感觉。
+
+* 2016-05-16 15:50:12 just do it. 开工
+** git & github ok
+** public and private 公开部分和私密部分
+   login page is hidden.
+
+* 2016-05-11 10:56:39 备份和迁移
+kvdb, mysql
+<img src="showImg.php?k=thumb.1.1366353658115.jpg" width="600">
+http://xiaoduzi.applinzi.com/yy/showImg.php?k=day_201510080731009926.jpg
+http://xiaoduzi.applinzi.com/yy/showImg.php?k=origin9.1396281126756.jpg

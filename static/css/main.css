@@ -1,0 +1,21 @@
+#page-contents{background-color:#999}
+a{text-decoration:none}
+
+/* <div style="clear:both"></div> 会多一个没意义的div*/
+.clrfix:after{content:".";display:block;height:0px;clear:both;visibility:hidden;}
+
+p{margin:3px;}
+
+.img,.msg{float:left}
+.icon,.imgTitle{float:right}
+.img img{width:365px;}
+.icon img{width:80px;}
+
+.msglst{width:366px}
+
+/* img,object{max-width:100%;width:100%} */
+
+/* .imgtext{display:block;float:left} */
+/* .textimg{display:block;float:right} */
+/* .ltext{display:block;float:left} */
+/* .rtext{display:block;float:right} */

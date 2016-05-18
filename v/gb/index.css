@@ -1,0 +1,16 @@
+header {padding:4px}
+.newpost {background-color:#def; border:solid 2px #d3d3d3;padding:4px 0 4px 0;}
+#favor-list {padding:3px;background-color:#abc}
+.hobby {width:90%;}
+.mania {width:61.8%}
+.post {border-bottom:solid 2px gray; padding-bottom:6px}
+#morepost{ width: 30% }
+.reply {magin-left:16px;background-color:#cadbec}
+.reply pre{border-bottom:solid 2px darkseagreen; padding-bottom:3px}
+pre{
+	white-space:pre-wrap;/*css-3*/
+	white-space:-moz-pre-wrap;/*Mozilla,since1999*/
+	white-space:-pre-wrap;/*Opera4-6*/
+	white-space:-o-pre-wrap;/*Opera7*/
+	word-wrap:break-word;/*InternetExplorer5.5+*/    
+}

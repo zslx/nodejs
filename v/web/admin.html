@@ -1,0 +1,66 @@
+<form method="post" action="/login">
+  UserName:<input type="text" name="name"><br>
+  Password:<input type="password" name="password"><br>
+  <input type="submit" name="submit" value="登录">
+</form>
+<pre>
+  粉丝的关注和取消关注消息；
+  打开微网站/商城；
+</pre>
+<hr>
+<pre>
+  功能: 右侧菜单
+  1 收到的信息： 回复、删除、备份(自动删除未备份的旧信息)
+  2 当用户关注时回应的信息 【一个大图，两三个小图，进入动网的入口链接】
+  3 群发消息： 内容，手动发生，定时发生
+  4 cms 资源管理: ？
+</pre>
+
+<div class="">
+  <div class="row">
+	<form method="post" action="/subscribe">
+	  欢迎信息：<textarea name="resmsg"></textarea>
+	  <input type="submit" name="submit" value="保存">
+	</form>
+  </div>
+  <div class="row">
+	<form method="post" action="/subscribe">
+	  群发消息：<textarea name="sendmsg"></textarea>
+	  <input type="submit" name="submit" value="发送">
+	  或者定时发送：
+	</form>
+  </div>
+  <div class="row">
+	<form method="post" action="/subscribe">
+	  自动回复信息：<textarea name="sendmsg"></textarea>
+	  <input type="submit" name="submit" value="保存">
+	</form>
+  </div>
+  <div class="row">
+	<q>设置自定义菜单</q>
+	<form method="post" action="/subscribe">
+	  类型:<input type="text" name="type"><br>
+	  名称：<input type="text" name="name"><br>
+	  Key：<input type="text" name="key"><br>
+	  <button>添加子菜单 </button> <input type="submit" name="submit" value="保存">
+	</form>
+  </div>
+  <div class="row">
+	<q>从公众平台收到的信息</q>
+	<pre>
+	  <?=weixin_msg?>
+	</pre>
+  </div>
+  <div class="row">
+	<q>用户管理:</q>
+	用户列表 + 操作:发送消息,添加备注,定时提醒
+  </div>
+</div>
+
+<hr>
+<pre>
+  我的xyz：
+  工作平台， emacs;
+  博客： zslx
+  微信公众号：
+</pre>

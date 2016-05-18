@@ -1,4 +1,6 @@
 nodejs
 ======
 
-study node.js
+study node.js.
+
+web and wechat frame work.

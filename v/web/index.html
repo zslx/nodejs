@@ -1,0 +1,23 @@
+<? include head.html ?>
+<header>传播有大礼</header>
+
+<? if(admin) { ?>
+<pre>
+  有任何问题，您可以直接在微信订阅号给我们发信息。
+  <img src="/static/tmp/wxqrc.jpg">
+  <?=desc?>
+  导航菜单、图文菜单
+  信息块、商品展位
+  互动：订单、支付、娱乐
+</pre>
+<form name="msgform" method="POST" action="/webmsg" onsubmit="return myjs.ffcheck();" enctype="application/x-www-form-urlencoded">
+  <table>
+	<tr><td>标题</td><td><input type="text" name="title"></td></tr>
+	<tr><td>图片</td><td><input type="text" name="img"></td></tr>
+	<tr><td>正文</td><td><textarea name="content"></textarea></td></tr>
+	<tr><td>链接</td><td><input type="text" name="url"></td></tr>
+	<tr><td colspan="2" style="text-align:center"><input type="submit" value="发布" style="width:100%"></td></tr>
+  </table>
+</form>
+<? } ?>
+<? include foot.html ?>

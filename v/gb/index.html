@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" type="text/css" href="/v/gb/index.css?v=11" />
+	<title>xiafu</title>
+  </head>
+  <body>
+    <header id="bulletin">
+      <!-- 你可以在此【发布信息、讲述故事、分享图片、链接视频、语音片段】 -->
+    </header>
+    <? include gb/index_newpost.html ?>
+    <div id="favor-list">
+      <pre>
+        海纳百川，有容乃大。每个人都不一样。
+      </pre>
+    </div>
+    <? include gb/index_newpost.html ?>
+    <div style="width:100%">
+      <div style="width:49%;display:inline-block;text-align:right"><button style="width:100%" id="morepost">更多...</button></div>
+    </div>
+    <footer>
+	  Copyright © 2013 by 晚霞如血<br>All Rights Reserved.<br>
+    </footer>
+    <script src="/static/js/ajax.js?v=3"></script>
+    <script src="/v/gb/index.js?v=55"></script>
+    <? if (admin) { ?>
+    <script src="/v/gb/admin.js?v=11"></script>
+    <? } ?>
+  </body>
+  <!-- java -jar f:/2014/java/yuicompressor-2.4.8.jar index.src.js -o index.js -->
+</html>
