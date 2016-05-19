@@ -1,0 +1,33 @@
+<xml> 
+  <nonce_str><![CDATA[<?-nonce?>]]></nonce_str>
+  <sign><![CDATA[<?-sign?>]]></sign>
+
+  <mch_billno><![CDATA[<?-billno?>]]></mch_billno>
+
+  <mch_id><![CDATA[<?-mchid?>]]></mch_id>
+  <wxappid><![CDATA[<?-appid?>]]></wxappid>
+
+  <nick_name><![CDATA[<?-nickname?>]]></nick_name>
+  <send_name><![CDATA[<?-sendname?>]]></send_name>
+
+  <re_openid><![CDATA[<?-openid?>]]></re_openid>
+  <total_amount><![CDATA[<?-amount?>]]></total_amount>
+
+  <min_value><![CDATA[<?-min?>]]></min_value>
+  <max_value><![CDATA[<?-max?>]]></max_value>
+
+  <total_num><![CDATA[<?-totalnum?>]]></total_num>
+  <wishing><![CDATA[<?-wishing?>]]></wishing>
+
+  <client_ip><![CDATA[<?-csip?>]]></client_ip>
+  <act_name><![CDATA[<?-actname?>]]></act_name>
+
+  <act_id><![CDATA[<?-actid?>]]></act_id>
+  <remark><![CDATA[<?-remark?>]]></remark>
+
+  <logo_imgurl><![CDATA[<?-logo?>]]></logo_imgurl>
+  <share_content><![CDATA[<?-share?>]]></share_content>
+
+  <share_url><![CDATA[<?-url?>]]></share_url>
+  <share_imgurl><![CDATA[<?-img?>]]></share_imgurl>
+</xml>

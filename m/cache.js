@@ -1,16 +1,19 @@
 'use strict';
-var nmc;
-if(global.online) {
-    // Memcache
-    // 内存容量--2元/GB/天
-    // 请求次数10000 0.25元/百万次
-    // Redis
-    // 内存容量人民币/天
-    // 256M 1元/天
-    nmc = require('../modules/saecache');
-}else{
-    nmc = require('../modules/nmcache');
-}
+
+const nmc = require('../modules/saecache');
+
+// var nmc;
+// if(global.online) {
+//     // Memcache
+//     // 内存容量--2元/GB/天
+//     // 请求次数10000 0.25元/百万次
+//     // Redis
+//     // 内存容量人民币/天
+//     // 256M 1元/天
+//     nmc = require('../modules/saecache');
+// }else{
+//     nmc = require('../modules/nmcache');
+// }
 
 // 缓存地理信息
 exports.xyset=function(k,v){

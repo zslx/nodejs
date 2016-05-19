@@ -1,3 +1,4 @@
+'use strict';
 console.log('模块加载时只执行一次？ejsq');
 var fs = require('fs'),
     ejs = require('ejs'),
@@ -82,7 +83,7 @@ exports.render = function (template, options, req,res) {
 };
 
 exports.renderxml = function (template, options) {
-	var path = tpl + 'wx/' +template;
+	var path = tpl + 'wx/' + template;
 	if(fs.existsSync(path)) {
 		var stats = fs.statSync(path);
 		if(stats.isFile()) {
@@ -90,6 +91,5 @@ exports.renderxml = function (template, options) {
 			return ejs.render(fs.readFileSync(path,'utf8'), options);
 		}
 	}
-	res.writeHead(200, {'Content-Type': 'text/plain'});
 	return '404 Not Find.';
 };

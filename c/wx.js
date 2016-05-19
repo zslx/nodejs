@@ -3,7 +3,7 @@ console.log('模块加载时只执行一次？wx.js');
 // 微信公众平台 Controller
 const querystring = require('querystring'),
       urlencode = encodeURIComponent,
-	  // cache = require('../m/cache'),
+	  cache = require('../m/cache'),
       vxapi = require('../modules/vxapi'),
       ejsq = require('../modules/ejsq'),
       router = require('../modules/router'),
@@ -38,8 +38,8 @@ function vxsign(req, res, uri) {
 //ajax获取用户unionid
 function getuserinfo(req, res, uri) {
 	vxapi.getUserInfo(uri.query.openid, (s)=>{
-		res.writeHead(200, {'Content-Type': 'text/plain'});
-		res.end(s, 'utf8');
+     	res.writeHead(200, {'Content-Type': 'text/plain;charset=utf-8'});
+		res.end(s);
 	});
 }
 
@@ -118,11 +118,11 @@ function postHandle(req, res, data) {
 function eventHandler(xml, ret) {
     switch(xml.Event[0]) {
     case 'subscribe':
-        // cache.del_user(xml.FromUserName[0]);
+        cache.del_user(xml.FromUserName[0]);
         subscribe(xml, ret);
         break;
     case 'unsubscribe':
-        // cache.del_user(xml.FromUserName[0]);
+        cache.del_user(xml.FromUserName[0]);
         unsubscribe(xml, ret);
         break;
     case 'scancode_waitmsg':    // 公众号里调用扫码1
@@ -140,7 +140,7 @@ function eventHandler(xml, ret) {
         viewEvent(xml, ret);
         break;
     case 'LOCATION':            // 地理位置上报
-	    //cache.xyset(xml.FromUserName[0],[xml.Latitude,xml.Longitude,xml.Precision]);
+	    cache.xyset(xml.FromUserName[0],[xml.Latitude,xml.Longitude,xml.Precision]);
         break;
     default:
         // console.log('unknown event', xml.Event[0]);

@@ -11,7 +11,7 @@
     "dependencies": {
         "ejs": ">=2.4.1",
         "xml2js":">=0.4.16",
-        "memcached":">=2.2.1",
+        "memjs": "git://github.com/alevy/memjs.git#master",
         "crypto-js": ">=3.1.6"
     },
     "devDependencies":{

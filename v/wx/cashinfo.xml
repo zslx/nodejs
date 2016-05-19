@@ -1,0 +1,11 @@
+<xml> 
+  <nonce_str><![CDATA[<?-nonce?>]]></nonce_str>
+  <sign><![CDATA[<?-sign?>]]></sign>
+
+  <mch_billno><![CDATA[<?-billno?>]]></mch_billno>
+
+  <mch_id><![CDATA[<?-mchid?>]]></mch_id>
+  <appid><![CDATA[<?-appid?>]]></appid>
+
+  <bill_type><![CDATA[MCHT]]></bill_type>
+</xml>

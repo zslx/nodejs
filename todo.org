@@ -27,10 +27,16 @@ http://www.sinacloud.com/index/price.html
    分享，快乐，成长。
    论坛不是即时通讯的聊天工具，是有沉淀，有深度的，有家的感觉。
 
-* 2016-05-18 11:21:25 添加微信公众平台支持并部署到服务器
+* 2016-05-18 11:21:25 添加微信公众平台支持并部署到服务器 2016-05-19 14:36:44
+** 基础蛇蛇
   gh:feel8now
   server:sae.node
-  
+  # 问题： 配置文件是需要保密的？
+** git
+  git remote add sae https://git.sinacloud.com/pbxf
+  git push sae master:1
+** 添加 saecache.js，使用新的缓存库 memjs 重新封装缓存操作
+
 * 2016-05-16 15:50:12 just do it. 开工
 ** git & github ok
 ** public and private 公开部分和私密部分

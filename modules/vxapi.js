@@ -19,7 +19,7 @@ exports.get_access_token = (cb,force)=>{
 	if (force===undefined && Date.now() < global.access_token.time) {
         var ds = new Date();
         ds.setTime(global.access_token.time);
-		console.log('vxapi getAccessToken0', global.access_token, ds.toString());
+		console.log('vxapi get_access_token', global.access_token, ds.toString());
 		if(!!cb) { cb(global.access_token.token); }
 		return;
 	}
@@ -483,11 +483,11 @@ function getUserInfo(openid, callback, ghid) {
         return;
     }
     cache.get_user(openid, function(e,d) {
-        if (d === undefined) {
-            getUserBasicInfo(openid, callback, ghid);
-        } else {
-            console.log('getUserInfo from cache', d);
+        if (d ) {
+            console.log(`getUserInfo from cache:${d}`); // 字符串模板自动 buf2str
             callback(d);
+        } else {
+            getUserBasicInfo(openid, callback, ghid);
         }
     });
 }
@@ -536,13 +536,15 @@ function getUserBasicInfo(openid, callback, ghid) {
                     } else {
                         cache.set_user(openid, s, 5 * 24 * 3600); // 5天
                         // cache.mcset(global.h5server+openid, s, 30); // 自测 30 秒
-                        callback(s);
                     }
+                    callback(s);
                 } else {
                     console.log('getUserBasicInfo error1', ires.statusCode);
+                    callback(`error1 ${ires.statusCode}`);
                 }
             } catch (e) {
                 console.log('getUserBasicInfo error2', e, s);
+                callback(`error2 ${e}`);
             }
         });
     });
@@ -727,7 +729,7 @@ exports.getJsTicket = function(callf) {
 
     cache.get_ticket(function(d) {
         // console.log('get_ticket:', d);
-        if (d === undefined) {
+        if (!d ) {
             d = "0,0";
         }
         var i = d.indexOf(','),

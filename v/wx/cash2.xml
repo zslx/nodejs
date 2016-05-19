@@ -1,0 +1,12 @@
+<xml> 
+  <mch_appid><![CDATA[<?-appid?>]]></mch_appid>
+  <mchid><![CDATA[<?-mchid?>]]></mchid>
+  <nonce_str><![CDATA[<?-nonce?>]]></nonce_str>
+  <partner_trade_no><![CDATA[<?-tradeno?>]]></partner_trade_no>
+  <openid><![CDATA[<?-openid?>]]></openid>
+  <check_name><![CDATA[<?-checkname?>]]></check_name>
+  <amount><![CDATA[<?-amount?>]]></amount>
+  <desc><![CDATA[<?-desc?>]]></desc>
+  <spbill_create_ip><![CDATA[<?-csip?>]]></spbill_create_ip>
+  <sign><![CDATA[<?-sign?>]]></sign>
+</xml>
