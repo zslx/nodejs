@@ -1,11 +1,18 @@
+* 2016-05-19 16:45:08 login + welcome 可微信授权登录
+1. c/web.js v/web/login.html
+2. v/welcome.html
+3. 二维码内容是一个跳转页面
 * env: git, sae, nodejs, mysql, redis
-  gae 已经支持 nodejs
-  ipv6+加密传输
+  google: gae 已经支持 nodejs, ipv6+加密传输
+** 问题
+*** 配置文件是需要保密的？
+*** 订阅号，未认证，能做什么？
 * nodejs on sae
-http://www.sinacloud.com/index/price.html
+  http://www.sinacloud.com/index/price.html
 ** 需求、产品：第一印象！米饭、馒头，空气、水，持久使用
+   软件开发，健身/yoga，爱好分享； 文字，图片，小视频。
    兼顾移动设备和台式PC。
-   支持微信公众平台。原创文字，发布在微信平台
+   支持微信公众平台。原创文字，发布在微信平台。
 ** 设计：形式和内容？首页、反馈；note 笔记、便条；blog,forum,微信
    贴吧/forum：发、看、回；个人home; chatroom;
    home: show, profiles and private
@@ -17,21 +24,20 @@ http://www.sinacloud.com/index/price.html
    爱好：robot， 解答开发问题，其他困惑，陪聊:)
 ** 实现 nodejs, mui？
    pages:
-   p1 login + welcome
+   p1 login + welcome, 微信扫码登录（授权）
    p2 home
    p3 tieba
    p4 chat
-** 改进用户体验: 每天使用，无需思考就知道做什么。
-** 价值观
-   诚信是最有价值的品质。
-   分享，快乐，成长。
-   论坛不是即时通讯的聊天工具，是有沉淀，有深度的，有家的感觉。
+* 改进用户体验: 每天使用，无需思考就知道做什么。
+* 价值观
+  诚信是最有价值的品质。
+  分享，快乐，成长。
+  论坛不是即时通讯的聊天工具，是有沉淀，有深度的，有家的感觉。
 
 * 2016-05-18 11:21:25 添加微信公众平台支持并部署到服务器 2016-05-19 14:36:44
-** 基础蛇蛇
+** 基础设施
   gh:feel8now
   server:sae.node
-  # 问题： 配置文件是需要保密的？
 ** git
   git remote add sae https://git.sinacloud.com/pbxf
   git push sae master:1

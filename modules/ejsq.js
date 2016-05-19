@@ -33,7 +33,7 @@ exports.piece = function (template, options, req, res) {
 	if(fs.existsSync(fpath)) {
 		var stats = fs.statSync(fpath);
 		if(stats.isFile()) {
-			if(options.cache) options.filename = fpath;
+			options.filename = fpath;
 	        res.writeHead(200, {'Content-Type': 'text/html'});
             try{
 	            res.write(ejs.render(fs.readFileSync(fpath,'utf8'), options));
@@ -66,7 +66,7 @@ exports.render = function (template, options, req,res) {
 				res.writeHead(304, "Not Modified");
 				res.end();
 			}else{
-			    if(options.cache) options.filename = fpath;
+			    options.filename = fpath;
 	            res.writeHead(200, {'Content-Type': 'text/html'});
                 try{
 	                res.end(ejs.render(fs.readFileSync(fpath,'utf8'), options));
@@ -87,7 +87,7 @@ exports.renderxml = function (template, options) {
 	if(fs.existsSync(path)) {
 		var stats = fs.statSync(path);
 		if(stats.isFile()) {
-			if(options.cache) options.filename = path;
+			options.filename = path;
 			return ejs.render(fs.readFileSync(path,'utf8'), options);
 		}
 	}
