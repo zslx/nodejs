@@ -1,6 +1,5 @@
-$(function(){
+(function(){
 	// 二维码生成
-
 	var qrcode = new QRCode("qrcode", {
 		text: "Welcome to Vjifen!",
 		width: 128,
@@ -11,10 +10,13 @@ $(function(){
 		correctLevel : QRCode.CorrectLevel.M
 		// correctLevel : QRCode.CorrectLevel.Q
 		// correctLevel : QRCode.CorrectLevel.H
-	}), $qrstr=$('#qrstr'),$size=$('#qrsize'),
-	canvas=document.getElementById('qrcode').childNodes[0];
+	}),
+        dom_qrstr=document.getElementById('qrstr'),
+        dom_qrbtn=document.getElementById('qrbtn'),
+        dom_size=document.getElementById('qrsize'),
+	    canvas=document.getElementById('qrcode').childNodes[0];
 
-	$('#qrbtn').click(function(ev){
+	dom_qrbtn.addEventListener('click', function(ev){
 		qrcode.clear();
 		var level=QRCode.CorrectLevel.M,size=128;
 		switch(document.forms['radiof']['qrlevel'].value) {
@@ -31,13 +33,13 @@ $(function(){
 			level=QRCode.CorrectLevel.L;
 			break;
 		}
-		size = parseInt($size.val(),10);
+		size = parseInt(dom_size.value, 10);
 		qrcode._htOption.correctLevel = level;
 		qrcode._htOption.width = size;
 		qrcode._htOption.height = size;
 		canvas.width = size;
 		canvas.height = size;
-		qrcode.makeCode($qrstr.val());
+		qrcode.makeCode(dom_qrstr.value);
 	});
 
-});
+})();

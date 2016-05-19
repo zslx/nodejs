@@ -39,9 +39,9 @@ if(global.online) {
 	global.h5server='';
 
     global.mptoken='fa9e02f774a';
-	global.ghid='';
-	global.APPID=''; // 身受心法
-	global.APPSEC='';
+	global.ghid='gh_5c7e7c292230';
+	global.APPID='wxef0d04b69d607924'; // 身受心法
+	global.APPSEC='fcf6f60824790a9e1fcb9784dca90b9a';
     global.mch_id = ''; // 商户平台
     global.cashapikey = '';     // 微信支付
 
