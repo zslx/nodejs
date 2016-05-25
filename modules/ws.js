@@ -138,10 +138,10 @@ class WebSocket extends EventEmitter {
     }
 
     sendPing() {
-        this.socket.write(new Buffer(['0x89', '0x0']))
+        this.socket.write(new Buffer(['0x89', '0x0']));
     }
     sendPong() {
-        this.socket.write(new Buffer(['0x8A', '0x0']))
+        this.socket.write(new Buffer(['0x8A', '0x0']));
     }
     
     /*  The following is websocket data frame:
@@ -212,7 +212,7 @@ class WebSocket extends EventEmitter {
             maskingKey,
             remains,
             payloadData
-        }
+        };
     }
 
     /**
@@ -242,7 +242,7 @@ class WebSocket extends EventEmitter {
     encodeFrame(message) {
         message = String(message);
         var length = Buffer.byteLength(message);
-        if (!length) return;
+        if (!length) return null;
         //数据的起始位置，如果数据长度16位也无法描述，则用64位，即8字节，如果16位能描述则用2字节，否则用第二个字节描述
         var index = 2 + (length > 65535 ? 8 : (length > 125 ? 2 : 0));
 
