@@ -12,6 +12,12 @@ const querystring = require('querystring'),
 // 3 phome signature, normal
 
 exports.phome=post_index;
+exports.home = (req, res, uri)=> {
+    let tpl='web/home.html',
+        data={};
+    ejsq.render(tpl, data, req, res);
+};
+
 exports.index = (req, res, uri)=> { // get root, index action
     let q = uri.query;
 	if(q.signature!==undefined && q.timestamp!==undefined && q.nonce!==undefined) {

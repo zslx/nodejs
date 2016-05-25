@@ -56,13 +56,13 @@ if(global.online) {
 
 }else{
     // 开发环境
-	exports.port= 8060;
-	global.h5server='xd.vjifen.com';
+	exports.port= 8040;
+	global.h5server='xt.vjifen.com';
 
     global.mptoken='vmessage';
-	global.ghid='gh_dd59a3b6ac14';     // 原始ID
-	global.APPID='wx1ce2ca65ccc5aa5e'; // vjifen品牌服务 vjifenSFW
-	global.APPSEC='6edb823280bf9ed0c159acc9afe8c32a';
+	global.ghid='gh_0da16d225107';     // 原始ID
+	global.APPID='wx4dfa76a275a789a1'; // vjifen测试 vjfTest
+	global.APPSEC='eb244acbe94658acb3909e48993d467b';
     global.mch_id = ''; // 商户平台
     global.cashapikey = '';     // 微信支付
 

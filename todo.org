@@ -1,7 +1,93 @@
-* 2016-05-19 16:45:08 login + welcome 可微信授权登录
+* 2016-05-25 09:52:23 第一印象 首页 (登录 顶部的状态条，根据登录状态显示，注册or登录）
+** 内容
+  What is life? meaningful life is study&discovery, train body&heart, interest practice
+  hardware and software, robot, friends. explorer and discover.
+  诚信 分享 快乐 成长， 口号---是中国特色
+  聚焦：赚钱 兴趣 生活
+  个人需求，大家秩序
+  # 具体
+  web 技术研究和应用 html5,css,js,node,sql,kvdb
+  开发工具和开发环境 搭建和问题处理 emacs, git&hub, linux, docker, nodejs
+  开发：工具、语言、思想、方法、案例；
+  健身(yoga)：循序渐进、因人而异，六艺十式；
+  修行(yoga)：如同健身，坚定而精勤；
+  收入：会员、捐献、施舍、打赏、广告
+  爱好：robot， 解答开发问题，其他困惑，陪聊:)
+** 形式
+   内容对应的形式--产品
+*** 第一印象 首页
+    内容、目的、价值观的概要，指引
+    动态、赞助（以恰当的形式出现在各个场景）
+    共建：反馈，建议
+*** 个人
+   个人信息页
+   用户以及用户关系:关注，好友，留言，聊聊。
+   笔记，便签
+*** 大家
+   贴吧:用户创建和管理的论坛平台
+   发、看、回、收藏
+* 2016-05-23 10:58:28 HTML 5 客户端框架？ 高效，易用，少依赖；稳定，安全；
+** sae 提醒云豆充值，督促，勤奋努力；阿里云的境外主机 2016-05-24 17:08:49
+**  参考 Yii 的脚本处理程序，为 ejs 添加js,css脚本处理
+  registerJS, registerJSFile, registerCSS, registerCSSFile
+  模板？ 缓存？ 
+  Yii registerScriptFile
+  This method is called in CController::render when it finishes rendering content.
+  CClientScript thus gets a chance to insert script tags at <code>head</code> and
+  <code>body</code> sections in the HTML output.
+
+  先保存 script-file , 去重, 然后生成 script 标签, 然后插入 html
+	/**
+	 * Inserts the scripts in the head section.
+	 * @param string $output the output to be inserted with scripts.
+	 */
+	public function renderHead(&$output)
+	{
+		$html='';
+		foreach($this->metaTags as $meta)
+			$html.=CHtml::metaTag($meta['content'],null,null,$meta)."\n";
+		foreach($this->linkTags as $link)
+			$html.=CHtml::linkTag(null,null,null,null,$link)."\n";
+		foreach($this->cssFiles as $url=>$media)
+			$html.=CHtml::cssFile($url,$media)."\n";
+		foreach($this->css as $css)
+			$html.=CHtml::css($css[0],$css[1])."\n";
+		if($this->enableJavaScript)
+		{
+			if(isset($this->scriptFiles[self::POS_HEAD]))
+			{
+				foreach($this->scriptFiles[self::POS_HEAD] as $scriptFileValueUrl=>$scriptFileValue)
+				{
+					if(is_array($scriptFileValue))
+						$html.=CHtml::scriptFile($scriptFileValueUrl,$scriptFileValue)."\n";
+					else
+						$html.=CHtml::scriptFile($scriptFileValueUrl)."\n";
+				}
+			}
+
+			if(isset($this->scripts[self::POS_HEAD]))
+				$html.=$this->renderScriptBatch($this->scripts[self::POS_HEAD]);
+		}
+
+		if($html!=='')
+		{
+			$count=0;
+			$output=preg_replace('/(<title\b[^>]*>|<\\/head\s*>)/is','<###head###>$1',$output,1,$count);
+			if($count)
+				$output=str_replace('<###head###>',$html,$output);
+			else
+				$output=$html.$output;
+		}
+	}
+
+* 2016-05-20 09:21:55 docker 技术应用研究
+  plan: git&hub, emacs, nodejs&H5, linux, docker
+  docker 这个箱子为什么这么神奇呢？答案其实也就在上面的描述中，无非就是两个字：标准。
+  是的！标准！标准！标准！重要的事情说三遍。
+* 2016-05-19 16:45:08 login + welcome 可微信授权登录 2016-05-20 11:41:02 
 1. c/web.js v/web/login.html
 2. v/welcome.html
-3. 二维码内容是一个跳转页面
+3. 微信扫码登录，授权，创建用户，登录；二维码内容是一个跳转页面
 * env: git, sae, nodejs, mysql, redis
   google: gae 已经支持 nodejs, ipv6+加密传输
 ** 问题
@@ -17,11 +103,6 @@
    贴吧/forum：发、看、回；个人home; chatroom;
    home: show, profiles and private
    chat: online
-   开发：工具、语言、思想、方法、案例；
-   健身(yoga)：循序渐进、因人而异，六艺十式；
-   修行(yoga)：如同健身，坚定而精勤；
-   收入：会员、捐献、施舍、打赏、广告
-   爱好：robot， 解答开发问题，其他困惑，陪聊:)
 ** 实现 nodejs, mui？
    pages:
    p1 login + welcome, 微信扫码登录（授权）
@@ -52,3 +133,41 @@ kvdb, mysql
 <img src="showImg.php?k=thumb.1.1366353658115.jpg" width="600">
 http://xiaoduzi.applinzi.com/yy/showImg.php?k=day_201510080731009926.jpg
 http://xiaoduzi.applinzi.com/yy/showImg.php?k=origin9.1396281126756.jpg
+* 资源，参考
+  artDialog——经典、优雅的网页对话框控件。
+  https://github.com/aui/artDialog
+  文档与示例：http://aui.github.io/artDialog/doc/index.html
+
+Html5 布局
+以下列出了本章探讨的新元素及新特性。
+<header>：定义页面或区块的页眉区域
+<footer>：定义页面或区块的页脚
+<nav>：定义页面或区块的导航条
+<section>：区块，定义页面或内容分组的逻辑区域
+<article>：定义文章或完整的一块内容
+<aside>：定义次要或相关性内容
+定义列表（Description lists）：定义名字与对应值，如定义项与描述内容（所有浏览器）
+<meter>：描述一个数量范围
+<progress>：通过设置进度条，显示实时进度情况
+自定义数据属性：通过data-模式，允许给元素添加自定义属性（所有的浏览器都支持通过JavaScript的getAttribute()方法读取这些自定义属性）
+
+
+与文档标题（heading，诸如<h1>、<h2>、<h3>等标签）不同，页眉（header）可以包含各式各样的内容，比如公司商标、搜索框，等等
+每个<section>标签或<article>标签，都可以包含自己的<header>标签。
+
+标签的作用只是描述内容，并不描述内容长成什么样子，那是CSS所做的事情。
+
+<section>标签表示文档中相关内容的逻辑划分。而<article>标签代表实际的内容，如杂志文章、博客文章以及新闻条目等。
+
+每篇博客文章都有一个<header>标签、具体内容以及一个<footer>标签。
+一篇完整文章如下：
+<article>
+  <header><h2>标题</h2>
+    <p>作者信息</p></header>
+  <p>段落1</p>
+  <p>段落2</p>
+  <footer>
+    <p><a href="comments"><i>25 Comments</i></a> ...</p></footer>
+</article>
+
+为主要内容添加一些额外的辅助信息，比如引文、图表、其他想法或相关链接等。可以使用新的<aside>标签来标识这些元素。

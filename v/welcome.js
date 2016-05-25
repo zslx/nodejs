@@ -14,8 +14,9 @@
         alert('不支持 WebSocket');
         return;
     }
-
-    var wsc = connws( initPage );
+    
+    var dom_login = document.getElementById('login'),
+        wsc = connws( initPage );
     
     function initPage(ws) {
         if(sessionStorage.login !== undefined) { // 有登录凭证 检查是否已经登录
@@ -25,13 +26,23 @@
             };
             ws.send(JSON.stringify(cmd));
         }else{
-            // location.replace('/v/mpkf/login.html');
+            dom_login.innerHTML = '登录';
         }
     }
+
+    dom_login.addEventListener('click', function(ev){
+        if(dom_login.innerHTML === '我') { // go home page
+            location.href = '/v/web/home.html';
+        }else{
+            // location.replace('/v/web/login.html');
+            location.href = '/v/web/home.html';
+        }
+    });
 
     // 登录失效 重新登录
     function login_invalid(){
         delete sessionStorage.login;
+        dom_login.innerHTML = '登录';
         // location.replace('/v/mpkf/login.html');
     }
 
@@ -41,6 +52,7 @@
         var msgar = event.data.split('\r\n');
         switch(msgar[0]) {
         case 'checkLoginOK':
+            dom_login.innerHTML = '我';
             break;
         case 'loginInvalid':
             // vge.emit('loginInvalid', msgar.slice(1));
