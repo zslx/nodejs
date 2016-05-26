@@ -1,50 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
   <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title> heaven | hell</title>
+    <link href="/static/bs/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/v/welcome.css" type="text/css">
   </head>
   <body>
-    <header id="page_header">
-      <nav>
-        <ul>
-          <li><a href="#">首页</a></li>
-          <li><a href="/web/bbs">贴吧</a></li>
-          <li><a href="/web/home">我的</a></li>
-        </ul>
-      </nav>
-      <span id="status"><a id="login">登录</a><a id="signon">注册</a></span>
-    </header>
-    <section id="content">
-      <article class="news">
-        <header><h2>最新动态</h2></header>
-        <aside>旁白，说明</aside>
-        <p>内容摘要</p>
-        <footer>来自xxx</footer>
-      </article>
-      <article class="standpoint">
-        <header><h2>认识你自己</h2></header>
-        <q>世上本没有路，走的人多了便成了路。世上万物本没有意义，因人的存在才有了善恶美丑,高低贵贱,是非曲直等等评价。</q>
-        <br>
-        “元芳，你怎么看？” “大人，龙生龙凤生凤 老鼠的儿子会打洞，请尊重屎壳郎滚粪球。”
-        <aside> 每个人都不一样，请互相尊重，不要把自己的喜好和价值观强加于人。</aside>
-        <footer>祝愿大家健康、成功、快乐！</footer>
-      </article>
-    </section>
-    <section id="sidebar">
-	  <a href="http://www.nongli.com/item3/" target="_blank">万 年 历</a>
-      <br>
-	  <a href="http://www.12306.cn" target="_blank">火 车 票</a> &#8800; <a cd="1" href="http://jipiao.kuxun.cn/" target="_blank"><font color="#1155cc">特价机票</font></a>&nbsp;&nbsp;&nbsp;&nbsp;
-	  <a href="http://hotels.ctrip.com/" target="_blank">酒店预订</a> &#8800; <a href="http://www.weather.com.cn/" target="_blank">天气预报</a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="http://www.taobao.com/" target="_blank">淘宝</a>
-	  <a href="http://www.jd.com" target="_blank">京东</a>
-      大众点评
-	  &nbsp;&nbsp;&nbsp;&nbsp;
-    </section>
-    <hr>
-    
+    <div class="container">
+      <header class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li class="active"><a href="/">首页</a></li>
+            <li ><a href="/web/bbs">贴吧</a></li>
+            <li ><a href="/web/home">我的</a></li>
+            <li ><a href="/web/login" id="login">登录</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Welcome</h3>
+      </header>
+      <section class="jumbotron">
+        <h1>内容与形式</h1>
+        <p class="lead">内容是事物的内在诸要素的总和。形式是内容的存在方式，是内容的结构和组织。内容和形式是辩证的统一。没有无形式的内容，也没有无内容的形式。内容与形式是叠态的影象。内容决定形式，形式依赖于内容，并随着内容的发展而改变。但形式又作用于内容，影响内容。当形式适合于内容时，它对内容的发展起着有力的促进作用，反之，就起严重的阻碍作用。内容和形式的关系又是相对的，作为一定内容的形式，可以成为另一形式的内容。内容和形式的辩证法要求观察问题时，首先注重事物的内容，同时也不忽视形式和作用。由于历史的发展，特定社会的需求，在内容发展了的同时，必须有新的形式与之相适应，所以，要打破旧的形式，创立新形式。而这新形式又必须在旧形式上的继承和扬弃，使之能为新内容而服务。</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">我是按钮</a></p>
+        <!-- <p class="lead">辩证法即思辩与实证相统一的方法。</p> -->
+      </section>
+      <section class="row marketing">
+        <div class="col-lg-6">
+          <h4>最新动态</h4>
+          <p>内容摘要</p>
+          <p>内容摘要</p>
+          <p>内容摘要</p>
+          <h4>滚动新闻</h4>
+          <p>内容摘要，内容摘要， 内容摘要</p>
+          <h4>便民</h4>
+          <p>
+            <a href="http://www.nongli.com/item3/" target="_blank">万 年 历</a>
+            <br>
+	        <a href="http://www.12306.cn" target="_blank">火 车 票</a> &#8800; <a cd="1" href="http://jipiao.kuxun.cn/" target="_blank"><font color="#1155cc">特价机票</font></a>&nbsp;&nbsp;&nbsp;&nbsp;
+	        <a href="http://hotels.ctrip.com/" target="_blank">酒店预订</a> &#8800; <a href="http://www.weather.com.cn/" target="_blank">天气预报</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="http://www.taobao.com/" target="_blank">淘宝</a>
+	        <a href="http://www.jd.com" target="_blank">京东</a>
+            大众点评
+	        &nbsp;&nbsp;&nbsp;&nbsp;
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <h4>认识你自己</h4>
+          <p> 每个人都不一样，请互相尊重，不要把自己的喜好和价值观强加于人。</p>
+          <p>
+            <q>世上本没有路，走的人多了便成了路。世上万物本没有意义，因人的存在才有了善恶美丑,高低贵贱,是非曲直等等评价。</q>
+            <br>
+            “元芳，你怎么看？” “大人，龙生龙凤生凤 老鼠的儿子会打洞，请尊重屎壳郎滚粪球。”
+          </p>
+        </div>
+      </section>
+      <footer class="footer">
+        <p>code by zsl, power by nodejs.</p>
+        <p>祝愿大家健康、成功、快乐！</p>
+      </footer>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/static/bs/js/bootstrap.min.js"></script>
   </body>
   <script src="/static/js/vve/10core.js?v=18"></script>
   <script src="/static/js/vve/22nav.js?v=1"></script>

@@ -1,4 +1,7 @@
-* 2016-05-25 09:52:23 第一印象 首页 (登录 顶部的状态条，根据登录状态显示，注册or登录）
+* 2016-05-25 09:52:23 第一印象 首页 (登录 顶部的状态条，根据登录状态显示，注册or登录） 2016-05-26 11:04:06 
+** 实现
+   nav: 首页、贴吧、我的； 登录、注册。
+   巨人: bootstrap, jquery
 ** 内容
   What is life? meaningful life is study&discovery, train body&heart, interest practice
   hardware and software, robot, friends. explorer and discover.

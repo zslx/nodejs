@@ -1,6 +1,7 @@
 exports.types = {
     "html": "text/html",
     "css": "text/css",
+    "map": "text/map",
     "js": "text/javascript",
 	"mf": "text/cache-manifest",
     "manifest":"text/cache-manifest",
