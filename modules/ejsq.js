@@ -123,8 +123,8 @@ exports.render = function (template, options, req,res) {
 		if(stats.isFile()) {
             
             var lastModified = stats.mtime.toUTCString(),
-                bm = objempty(options);
-			res.setHeader("Cache-Control", 'max-age=0'); 
+                bm = objempty(options); // 有无模板数据
+			res.setHeader("Cache-Control", 'max-age=0'); // 浏览器不缓存
 			res.setHeader("Last-Modified", lastModified);
             
 			if (bm && lastModified===req.headers['if-modified-since']) { // Etag

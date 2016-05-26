@@ -59,7 +59,7 @@ exports.checkSignature = (signature, timestamp, nonce)=> {
 	if (signature === ss) {
 		return true;
 	} else {
-		console.log('checkSignature failed.%s === %s', signature, ss);
+		console.log(`checkSignature failed ${signature} !== ${ss}, token:${global.mptoken} appid:${global.APPID}`);
 		return false;
 	}
 };
