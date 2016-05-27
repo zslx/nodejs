@@ -2,6 +2,12 @@
 ** 实现
    nav: 首页、贴吧、我的； 登录、注册。
    巨人: bootstrap, jquery
+*** 首页 公共、动态
+*** 登录 注册 email, password; 微信扫码
+    我的 没有登录则跳转到登录/注册页面
+    短信验证码接口 1069*全网通 http://www.ihuyi.com/
+*** 我的 头像 昵称 介绍；状态 博客
+*** 
 ** 内容
   What is life? meaningful life is study&discovery, train body&heart, interest practice
   hardware and software, robot, friends. explorer and discover.

@@ -482,6 +482,13 @@ function getUserInfo(openid, callback, ghid) {
         callback('{}');
         return;
     }
+    
+    if(illegalCC(openid)) {
+        console.log('getUserBasicInfo illegal openid:', openid);
+        callback(`非法参数 ${openid}`);
+        return;
+    }
+
     cache.get_user(openid, function(e,d) {
         if (d ) {
             console.log(`getUserInfo from cache:${d}`); // 字符串模板自动 buf2str
