@@ -12,9 +12,25 @@ const querystring = require('querystring'),
 // 3 phome signature, normal
 
 exports.phome=post_index;
-exports.home = (req, res, uri)=> {
+exports.my = (req, res, uri)=> {
     let tpl='web/home.html',
         data={};
+    // 没有登录则跳转到 login
+    ejsq.render(tpl, data, req, res);
+};
+
+exports.bbs = (req, res, uri)=> {
+    let tpl='web/tieba.html',
+        data={};
+    // 查找与创建合一， 有则显示在下面，没有则显示创建
+    ejsq.render(tpl, data, req, res);
+};
+
+exports.login = (req, res, uri)=> {
+    let tpl='web/login.html',
+        data={};
+    // 三种方式， 邮件和密码， 手机和验证码， 微信扫码
+    // 登录与注册合一
     ejsq.render(tpl, data, req, res);
 };
 

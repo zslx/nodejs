@@ -1,3 +1,4 @@
+'use strict';
 exports.types = {
     "html": "text/html",
     "css": "text/css",
@@ -31,7 +32,7 @@ var fs = require('fs'),
     zlib=require('zlib');
 
 var fsroot = global.fsroot;
-var cdirs=['/static/','/v/'];       // 允许客户端访问的目录白名单
+var cdirs=['/static/','/v/','\\static\\','\\v\\'];       // 允许客户端访问的目录白名单
 console.log('client dirs:', cdirs );
 // require 方法的坐标路径是 module.filename/__filename; fs.readFile 的坐标路径是 process.cwd
 
@@ -46,6 +47,8 @@ exports.r = function (fpath, ext, contentType, req, res) {
     // console.log('fsroot,fpath', fsroot, fpath, fullpath);
     if( ext!=='ico' && // except favicon.ico
         fpath.indexOf(cdirs[0]) !== 0 &&
+        fpath.indexOf(cdirs[2]) !== 0 &&
+        fpath.indexOf(cdirs[3]) !== 0 &&
         fpath.indexOf(cdirs[1]) !== 0 ) {
         // 非法目录
         console.log('staticf 非法访问', fpath);
