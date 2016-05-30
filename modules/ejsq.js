@@ -1,5 +1,6 @@
 'use strict';
 console.log('模块加载时只执行一次？ejsq');
+// https://github.com/ncuzp/ejs/blob/master/lib/ejs.js 源码注释
 var fs = require('fs'),
     ejs = require('ejs'),
     // LRU = require('lru-cache');
@@ -62,7 +63,7 @@ exports.setViewPath = function (path) {
 
 
 // 参考 Yii 的脚本处理程序，为 ejs 添加脚本注册能力 :
-// registerJS, registerJSFile, registerCSS, registerCSSFile
+// registerJS, registerJSFile, registerCSS, registerCSSFile, setTitle
 // 每个页面有自己的 js,css
 // es6 class 没有 static 属性，只有 static 方法
 class EjsExt {
