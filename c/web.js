@@ -3,6 +3,7 @@ console.log('模块加载时只执行一次？web');
 // web Controller
 const querystring = require('querystring'),
       vxapi = require('../modules/vxapi'),
+      cookie = require('../modules/cookie'),
       wx = require('./wx'),
       ejsq = require('../modules/ejsq');
 
@@ -16,6 +17,17 @@ exports.my = (req, res, uri)=> {
     let tpl='web/home.html',
         data={};
     // 没有登录则跳转到 login
+    // 如何检查是否登录？ cookie
+    let cks = cookie.get(req);
+    if(cks.xflogin===undefined) {
+
+        // res.writeHead(302, {
+        //     'Cache-Control': 'no-cache',
+        //     'location': '/web/login'
+        // });
+        
+        tpl='web/login.html';
+    }
     ejsq.render(tpl, data, req, res);
 };
 
