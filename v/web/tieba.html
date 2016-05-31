@@ -1,49 +1,43 @@
-    <? include ../head.html ?>
+<? include ../head.html ?>
 <!-- registerCSSFile:/v/web/tieba.css -->
 <!-- registerJS:
      document.title='部落';
   -->
+<header class="header clearfix">
+  <nav>
+    <ul class="nav nav-pills pull-right">
+      <li class="active"><a href="/">首页</a></li>
+      <li ><a href="/web/bbs">贴吧</a></li>
+      <li ><a href="/web/my">我的</a></li>
+    </ul>
+  </nav>
+  <h3 class="text-muted">实践经验分享</h3>
+</header>
+<form>
+  <input type="text" class="form-control input-lg" placeholder="输入要找的群组">
+  <button type="submit" class="btn btn-default">进吧</button>
+</form>
+<section class="row marketing">
+  <div class="col-xs-4">
+    <h4>软件 software</h4>
+    思想 工具 方法 案例。
+  </div>
+  <div class="col-xs-4">
+    <h4>健身 YOGA</h4>
+    因人而异 循序渐进 持之以恒。
+  </div>
+  <div class="col-xs-4">
+    <h4>生活 爱好</h4>
+  </div>
+</section>
 
-    <div class="container">
-      <header class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li class="active"><a href="/">首页</a></li>
-            <li ><a href="/web/bbs">贴吧</a></li>
-            <li ><a href="/web/my">我的</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">实践经验分享</h3>
-      </header>
-      <form>
-        <input type="text" class="form-control input-lg" placeholder="输入要找的群组">
-        <button type="submit" class="btn btn-default">进吧</button>
-      </form>
-      <section class="row marketing">
-        <div class="col-xs-4">
-          <h4>软件 software</h4>
-          思想 工具 方法 案例。
-        </div>
-        <div class="col-xs-4">
-          <h4>健身 YOGA</h4>
-          因人而异 循序渐进 持之以恒。
-        </div>
-        <div class="col-xs-4">
-          <h4>生活 爱好</h4>
-        </div>
-      </section>
-      <footer class="footer">
-        <p>code by 重逢, power by bootstrap.</p>
-        <p>祝愿大家健康、成功、快乐！</p>
-      </footer>
-    </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.3.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/static/bs/js/bootstrap.min.js"></script>
-
-    
 <? include ../foot.html ?>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.3.min.js"></script> -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- <script src="/static/bs/js/bootstrap.min.js"></script> -->
+
 <!-- registerJSFile:/static/js/vve/10core.js?v=18 -->
 <!-- registerJSFile:/static/js/vve/22nav.js?v=1 -->
 <!-- registerJSFile:/v/web/tieba.js?v1 -->

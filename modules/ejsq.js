@@ -185,10 +185,10 @@ function beforeRender(html){
 
 function afterRender(html, source){
     var headscripts=[source.cssfile.join('\n')],
-        footscripts=['</body>',source.jsfile.join('\n')];
+        footscripts=[source.jsfile.join('\n')];
 
     headscripts.push(`<style>${source.css.join('\n')}</style></head>`);
-    footscripts.push(`<script>${source.js.join('\n')}</script>`);
+    footscripts.push(`<script>${source.js.join('\n')}</script></body>`);
     
     return html.replace('</head>', headscripts.join('\n')).replace('</body>',footscripts.join(''));
 }
@@ -209,6 +209,7 @@ exports.render = function (template, options, req,res) {
             
 			if (bm && lastModified===req.headers['if-modified-since']) { // Etag
                 // 动态生成的页面，不能 304 ，因为模板的数据一直在变
+                console.log(`lastModified:${lastModified}`);
 				res.writeHead(304, "Not Modified");
 				res.end();
 			}else{
@@ -221,7 +222,7 @@ exports.render = function (template, options, req,res) {
                     html = ejs.render(output.html.join(''), options);
                     // console.log(html);
                     html = afterRender(html, output);
-                    // console.log(html);
+                    console.log(html);
 	                res.end(html);
                 }catch(e){
                     console.log('500 服务器模板参数错误',e);
