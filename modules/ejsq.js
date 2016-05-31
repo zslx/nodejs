@@ -12,6 +12,8 @@ var fs = require('fs'),
 ejs.open='<?'; ejs.close='?>';  // old
 ejs.delimiter = '?';            // new
 
+const commentpat = new RegExp('<!--|-->');
+
 // Unbuffered code for conditionals etc <% code %>
 // Escapes html by default with <%= code %>
 // Unescaped buffering with <%- code %>
@@ -114,6 +116,83 @@ exports.piece = (template, options)=> {
 	return `404 ${fpath} Not Find.`;
 };
 
+// 收集 registerxxx:
+function beforeRender(html){
+    // <!-- registerCSSFile:/v/welcome.css -->
+    // <!-- registerJSFile:/v/welcome.js?v=4 -->
+    let result=commentpat.exec(html),
+        arr=[],
+        begin=0,end=0;
+    while(result) {
+        begin = result.index;
+        if(begin!==0) {
+            // 前面有内容
+            arr.push(html.substring(0, begin));
+            html = html.slice(begin);
+        }
+        arr.push(result[0]);
+        html = html.slice(result[0].length);
+        result = commentpat.exec(html);
+    }
+    if(html.length>0) {
+        arr.push(html);
+    }
+
+    let scripts={jsfile:[],js:[],cssfile:[],css:[], html:[]}, comments=false;
+    arr.forEach((line,index)=>{
+        // console.log(`${index}:${line}\n`);
+        switch(line) {
+        case '<!--':
+            if(arr[index+2]!=='-->') {
+                throw new Error('<!-- without -->');
+            }
+            comments=true;
+            break;
+        case '-->':
+            break;
+        default:
+            line = line.trim();
+            if(comments) {
+                let ii=line.indexOf(':'), kv=ii===-1?'':line.substr(0,ii);
+                switch(kv) {
+                case 'registerJSFile':
+                    line = `<script src="${line.substr(ii+1)}"></script>`;
+                    scripts.jsfile.push(line);
+                    break;
+                case 'registerCSSFile':
+                    line = `<link href="${line.substr(ii+1)}" rel="stylesheet">`;
+                    scripts.cssfile.push(line);
+                    break;
+                case 'registerJS':
+                    scripts.js.push(line.substr(ii+1));
+                    break;
+                case 'registerCSS':
+                    scripts.css.push(line.substr(ii+1));
+                    break;
+                default:
+                }
+            }else{
+                if(line) {
+                    scripts.html.push(line);
+                }
+            }
+            comments=false;
+        }
+    });
+
+    return scripts;
+}
+
+function afterRender(html, source){
+    var headscripts=[source.cssfile.join('\n')],
+        footscripts=['</body>',source.jsfile.join('\n')];
+
+    headscripts.push(`<style>${source.css.join('\n')}</style></head>`);
+    footscripts.push(`<script>${source.js.join('\n')}</script>`);
+    
+    return html.replace('</head>', headscripts.join('\n')).replace('</body>',footscripts.join(''));
+}
+
 // template: 模板文件相对路径（相对于 /v）
 // options: 模板参数
 exports.render = function (template, options, req,res) {
@@ -136,8 +215,14 @@ exports.render = function (template, options, req,res) {
 			    options.filename = fpath;
 	            res.writeHead(200, {'Content-Type': 'text/html'});
                 try{
-                    let output = ejs.render(fs.readFileSync(fpath,'utf8'), options);
-	                res.end(output);
+                    let html = fs.readFileSync(fpath,'utf8'),
+                        output= beforeRender(html);
+                    // console.log(output);
+                    html = ejs.render(output.html.join(''), options);
+                    // console.log(html);
+                    html = afterRender(html, output);
+                    // console.log(html);
+	                res.end(html);
                 }catch(e){
                     console.log('500 服务器模板参数错误',e);
 	                res.end('500 Template param err');
