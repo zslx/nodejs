@@ -1,0 +1,33 @@
+<? include ../head.html ?>
+<!-- registerCSSFile:/v/web/login.css -->
+<!-- registerJS:
+     document.title='登录|注册';
+  -->
+
+<form class="form-signin">
+  <h2 class="form-signin-heading">请登录</h2>
+  <label for="inputEmail" class="sr-only">Email 邮件地址</label>
+  <input type="email" id="inputEmail" class="form-control" placeholder="Email 邮件地址" required autofocus>
+  <label for="inputPassword" class="sr-only">Password 密码</label>
+  <input type="password" id="inputPassword" class="form-control" placeholder="Password 密码">
+  <div class="checkbox">
+    <label>
+      <input id="rememberMe" type="checkbox" value="remember-me"> 记住登录
+    </label>
+  </div>
+  <p class="help-block">未注册用户不填密码，系统将发送注册邮件。</p>
+  <button id="btn" class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+</form>
+
+<!-- include ../foot.html -->
+</div> <!-- end of .container -->
+</body>
+</html>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.3.min.js"></script> -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- <script src="/static/bs/js/bootstrap.min.js"></script> -->
+
+<!-- registerJSFile:/static/crypto/crypto-js.js -->
+<!-- registerJSFile:/v/web/login.js?v1 -->
