@@ -37,6 +37,7 @@ if(global.online) {
     // 生产环境
     exports.port= process.env.PORT || 5050;
 	global.h5server='';
+	global.tcpserver='192.168.0.202';
 
     global.mptoken='fa9e02f774a';
 	global.ghid='gh_5c7e7c292230';
@@ -58,6 +59,7 @@ if(global.online) {
     // 开发环境
 	exports.port= 8040;
 	global.h5server='xt.vjifen.com';
+	global.tcpserver='192.168.0.202';
 
     global.mptoken='vmessage';
 	global.ghid='gh_0da16d225107';     // 原始ID

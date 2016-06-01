@@ -1,4 +1,5 @@
 'use strict';
+console.log(`模块加载${module.id}`);
 const net = require('net'),
       EventEmitter = require('events').EventEmitter;
 

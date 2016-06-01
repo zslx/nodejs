@@ -4,6 +4,8 @@ console.log('模块加载时只执行一次？wsck');
 const crypto = require('crypto'),
       cryptojs = require('crypto-js'); // crypto-js 与 node-crypto 不兼容
 
+const mail = require('../m/mail');
+
 exports.chklogin = chklogin;
 exports.login = login;
 exports.register = register;
@@ -46,6 +48,10 @@ function register(ws, req) {
         ws.send('用户已经存在');
         return;
     }
+    console.log(`register new user ${user}`);
+    mail.send('from', user, '您在xxx注册的账号', '邮件内容Html格式',function(err,info){
+        console.log('mail result.');
+    });
     
     console.log('delete seckey',ki);
     delete seckeys[ki];

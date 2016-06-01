@@ -12,7 +12,7 @@ const querystring = require('querystring'),
 
 // 初始化
 try{
-    var netc = new NetC({port:9123});
+    var netc = new NetC({host:global.tcpserver,port:9123});
     // netc.on('data',(data)=>{console.log(data);}); // 是否需要处理应答
 }catch(e){
 }

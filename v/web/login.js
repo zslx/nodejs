@@ -65,6 +65,8 @@
     }
     
     function login(ev){
+        ev.stopPropagation();
+        ev.preventDefault();
         // 用户名可解密，密码不可解密
         if(seckeyi.length===0) {
             alert('链接服务器失败，请稍后再试');
@@ -72,7 +74,7 @@
         }
         var user=dom_user.value,
             pwd =dom_pwd.value;
-        if(user.length<2) {
+        if(user.length<6) {
             alert('用户名太短');
             return;
         }
