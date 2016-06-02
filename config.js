@@ -36,7 +36,7 @@ global.online = true;
 if(global.online) {
     // 生产环境
     exports.port= process.env.PORT || 5050;
-	global.h5server='';
+	global.h5server='localhost';
 	global.tcpserver='192.168.0.202';
 
     global.mptoken='fa9e02f774a';

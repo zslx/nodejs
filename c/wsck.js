@@ -36,8 +36,8 @@ function register(ws, req) {
     if(seckeys[ki]!==undefined) {
         var kv = seckeys[ki];
     }else{
-        // 非法登录
-        ws.send('登录错误');
+        // 非法访问
+        ws.send('非法访问');
         return;
     }
 
@@ -49,8 +49,17 @@ function register(ws, req) {
         return;
     }
     console.log(`register new user ${user}`);
-    mail.send('from', user, '您在xxx注册的账号', '邮件内容Html格式',function(err,info){
-        console.log('mail result.');
+    // 邮件注册、手机号注册、微信授权注册
+    // 创建密码
+    crypto.randomBytes(4, (err, buf) => {
+        console.log(`${buf.length}bytes random str:${buf.toString('hex')}`);
+        let html = [`登录名：${user}`],
+            urldes = `<a href="http://${global.h5server}:${global.cfg.port}/web/login" target="_blank">立刻去登录</a>`;
+        html.push(`密码：${buf.toString('hex')}`);
+        html.push(urldes);
+        mail.send(user, '一封未读邮件', html.join('<br>'),function(err,info){
+            console.log('mail result.');
+        });
     });
     
     console.log('delete seckey',ki);
