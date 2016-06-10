@@ -1,7 +1,10 @@
+* 2016-06-10 23:27:33 新浪 sae 问题，不支持 ws
+使用 ws 协议链接服务器，直接给回了 200！
+WebSocket connection to 'ws://fomowo.applinzi.com/dmo?v=1' failed: Error during WebSocket handshake: Unexpected response code: 200
+提交工单：提升页面找不到。
 * 2016-06-08 22:14:27 看看做点啥 2016-06-10 16:02:31 
 备份新浪sae的程序和数据: 代码，数据库，kvdb
 http://zslx.applinzi.com/yy/showImg.php?k=origin3.1368277642706.jpg
-
 * 2016-05-30 18:00:44 plan 2016-05-31 09:16:09 2016-06-01 10:01:34 微信客服
 1. 微信客服？ 掌握用户在公众号里的各种活动；回应用户咨询；
 2. ejs template OK

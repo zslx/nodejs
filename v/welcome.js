@@ -61,7 +61,7 @@
         // 错误处理
         ws.onerror = function(event){
             console.log('onerror', event);
-            alert('链接错误');
+            alert('WebSocket链接错误');
         };
         // 关闭处理
         ws.onclose = function(event){
