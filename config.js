@@ -39,13 +39,6 @@ if(global.online) {
 	global.h5server='localhost';
 	global.tcpserver='192.168.0.202';
 
-    global.mptoken='fa9e02f774a';
-	global.ghid='gh_5c7e7c292230';
-	global.APPID='wxef0d04b69d607924'; // 身受心法
-	global.APPSEC='fcf6f60824790a9e1fcb9784dca90b9a';
-    global.mch_id = ''; // 商户平台
-    global.cashapikey = '';     // 微信支付
-
 	global.japi='';
 	global.jport=0;
 	global.jpath='/interface';
@@ -61,13 +54,6 @@ if(global.online) {
 	global.h5server='xt.vjifen.com';
 	global.tcpserver='192.168.0.202';
 
-    global.mptoken='vmessage';
-	global.ghid='gh_0da16d225107';     // 原始ID
-	global.APPID='wx4dfa76a275a789a1'; // vjifen测试 vjfTest
-	global.APPSEC='eb244acbe94658acb3909e48993d467b';
-    global.mch_id = ''; // 商户平台
-    global.cashapikey = '';     // 微信支付
-
 	global.japi='';
 	global.jport=0;
 	global.jpath='/bizInterface';
@@ -79,11 +65,3 @@ if(global.online) {
 }
 
 console.log(`online:${global.online},h5server:${global.h5server},mc:${global.mc}`);
-
-global.access_token={time:0,token:''};
-
-global.oauth_url=`https://open.weixin.qq.com/connect/oauth2/authorize?appid=${global.APPID}&redirect_uri=`;
-
-global.oauth_args_base = '&response_type=code&scope=snsapi_base&state=tc1#wechat_redirect';
-
-global.oauth_args_adv = '&response_type=code&scope=snsapi_userinfo&state=tc1#wechat_redirect';

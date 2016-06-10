@@ -28,6 +28,8 @@
             break;
         case 'registerOK':
             // 账号已发送到您邮箱，请查收
+            setCookie('xflogin','registerOK',30);
+            location.replace('/web/my');
             break;
         case 'loginOK':
             sessionStorage.xflogin = msgar[1];
@@ -97,6 +99,19 @@
     form.onsubmit=login;
     
     // 不常改
+    
+	function setCookie(cname, cvalue, expire) {
+        // expire 过期时间，分钟
+        var cookie = [cname + '=' + cvalue];
+        if(expire!==undefined) {
+		    var d = new Date();
+		    d.setTime(d.getTime() + (expire*60*1000));
+
+            cookie.push('expires=' + d.toGMTString());
+        }
+		document.cookie = cookie.join(';');
+	}
+
     function connws(cb) {
         var ws = new WebSocket('ws://'+location.host+'/dmo?v=1', ["protocolTxt", "protocolBin"]);
         // 发送信息，当链接成功后

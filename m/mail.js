@@ -27,6 +27,7 @@ exports.send = (to, subject, html, cb)=>{
             // console.log(iconv.decode(error.response, 'GBK'), error);
             console.log(error);
         }else{
+            if(!!cb)cb(info);
             console.log(`Message sent:${info.response}`);
         }
     });
