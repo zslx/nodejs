@@ -12,6 +12,7 @@
         "ejs": ">=2.4.1",
         "xml2js":">=0.4.16",
         "memjs": "git://github.com/alevy/memjs.git#master",
+        "nodemailer":">=2.4.2",
         "crypto-js": ">=3.1.6"
     },
     "devDependencies":{

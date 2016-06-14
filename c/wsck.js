@@ -57,14 +57,15 @@ function register(ws, req) {
             urldes = `<a href="http://${global.h5server}:${global.cfg.port}/web/login" target="_blank">立刻去登录</a>`;
         html.push(`密码：${buf.toString('hex')}`);
         html.push(urldes);
-        mail.send(user, '一封未读邮件', html.join('<br>'),function(err,info){
-            console.log('mail result.');
+        mail.send(user, '一封未读邮件', html.join('<br>'),function(info){
+            console.log('mail result:',info.response);
+            ws.send(['registerOK', secuser].join('\r\n'));
         });
     });
     
     console.log('delete seckey',ki);
     delete seckeys[ki];
-    ws.send(['registerOK', secuser].join('\r\n'));
+    // ws.send(['registerOK', secuser].join('\r\n'));
 }
 
 function home(ws, req) {

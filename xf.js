@@ -45,6 +45,5 @@ fswatcher = fs.watch(businesscfg, watcher);
 fswatcher.on('error', watcherr);
 
 server.start(global.cfg.port);
-require('./c/wx');              // 预加载
 
 // /* Enjoy it! */
